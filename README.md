@@ -5,4 +5,6 @@ This is a quiz on kite trivia. After the short 5-question quiz, you can submit y
 These views were used: NestedScrollView, ConstraintLayout, LinearLayout, TextView, Button, Checkbox, RadioButton, RadioGroup.
 
 ### Screenshot from the app:
-![alt text](https://github.com/susanas/KiteQuizApp/blob/master/KiteQuizApp.png)
+![alt text](https://github.com/susanas/KiteQuizApp/blob/master/KiteQuizApp-new1.png)
+
+![alt text](https://github.com/susanas/KiteQuizApp/blob/master/KiteQuizApp-new2.png)
