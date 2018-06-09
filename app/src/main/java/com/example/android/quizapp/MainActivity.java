@@ -2,8 +2,8 @@ package com.example.android.quizapp;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
@@ -12,9 +12,18 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.lang.reflect.Method;
-
 public class MainActivity extends AppCompatActivity {
+
+    int counterQ1 = 0;
+    int counterQ2 = 1;
+    int counterQ3 = 0;
+    int counterQ4 = 0;
+    int counterQ5 = 0;
+    int counterQ6 = 0;
+    int gotItRight = 0;
+    int totalGrade;
+    String kiteFlyerAnswer = "yes";
+    String kiteFlyerAnswerNo = "no";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,30 +31,26 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    int counterQ1 = 0;
-    int counterQ2 = 0;
-    int counterQ3 = 0;
-    int counterQ4 = 0;
-    int counterQ5 = 0;
-    int totalGrade;
-
     public void onCheckBoxClicked(View view) {
         // Is the check box now checked?
         boolean checked = ((CheckBox) view).isChecked();
         // Add 1 point for each correct answer selected.
-        CheckBox correctAnswerTwoA = (CheckBox) findViewById(R.id.correct_qTwoA);
-        CheckBox correctAnswerTwoB = (CheckBox) findViewById(R.id.correct_qTwoB);
-        CheckBox correctAnswerTwoC = (CheckBox) findViewById(R.id.correct_qTwoC);
-        CheckBox correctAnswerTwoE = (CheckBox) findViewById(R.id.qTwoE);
+        CheckBox correctAnswerTwoA = findViewById(R.id.correct_qTwoA);
+        CheckBox correctAnswerTwoB = findViewById(R.id.correct_qTwoB);
+        CheckBox correctAnswerTwoC = findViewById(R.id.correct_qTwoC);
+        CheckBox correctAnswerTwoE = findViewById(R.id.qTwoE);
 
         // Which check box was checked?
         switch (view.getId()) {
 //      Question 2: A, B, C, F are correct answers, add 1 point to total grade.
+
             case R.id.correct_qTwoA:
                 if (checked) {
                     correctAnswerTwoA.setChecked(true);
                     Toast.makeText(this, "You got it!", Toast.LENGTH_LONG).show();
-                    counterQ2 = 1;
+                    gotItRight = gotItRight + 1;
+                } else {
+                    gotItRight = gotItRight - 1;
                 }
                 break;
 
@@ -53,7 +58,9 @@ public class MainActivity extends AppCompatActivity {
                 if (checked) {
                     correctAnswerTwoB.setChecked(true);
                     Toast.makeText(this, "You got it!", Toast.LENGTH_LONG).show();
-                    counterQ2 = 1;
+                    gotItRight = gotItRight + 1;
+                } else {
+                    gotItRight = gotItRight - 1;
                 }
                 break;
 
@@ -61,7 +68,9 @@ public class MainActivity extends AppCompatActivity {
                 if (checked) {
                     correctAnswerTwoC.setChecked(true);
                     Toast.makeText(this, "You got it!", Toast.LENGTH_LONG).show();
-                    counterQ2 = 1;
+                    gotItRight = gotItRight + 1;
+                } else {
+                    gotItRight = gotItRight - 1;
                 }
                 break;
 
@@ -69,7 +78,9 @@ public class MainActivity extends AppCompatActivity {
                 if (checked) {
                     correctAnswerTwoE.setChecked(true);
                     Toast.makeText(this, "You got it!", Toast.LENGTH_LONG).show();
-                    counterQ2 = 1;
+                    gotItRight = gotItRight + 1;
+                } else {
+                    gotItRight = gotItRight - 1;
                 }
                 break;
 
@@ -77,10 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 if (checked) {
                     ((CheckBox) view).setChecked(true);
                     Toast.makeText(this, "Try again!", Toast.LENGTH_SHORT).show();
-                    if (counterQ2 == 1) {
-                        // no point
-                        counterQ2 = 0;
-                    }
+                    gotItRight = gotItRight - 1;
                 }
                 break;
         }
@@ -90,10 +98,10 @@ public class MainActivity extends AppCompatActivity {
         // Is the button selected?
         boolean checked = ((RadioButton) view).isChecked();
         // Add 1 point for each correct answer selected.
-        RadioButton correctAnswerOne = (RadioButton) findViewById(R.id.correct_radio_button_b);
-        RadioButton correctAnswerThree = (RadioButton) findViewById(R.id.correct_qThrA);
-        RadioButton correctAnswerFour = (RadioButton) findViewById(R.id.correct_yes_radio_button4);
-        RadioButton correctAnswerFive = (RadioButton) findViewById(R.id.yes_radio_button5);
+        RadioButton correctAnswerOne = findViewById(R.id.correct_radio_button_b);
+        RadioButton correctAnswerThree = findViewById(R.id.correct_qThrA);
+        RadioButton correctAnswerFour = findViewById(R.id.correct_yes_radio_button4);
+        RadioButton correctAnswerFive = findViewById(R.id.yes_radio_button5);
 
         // Which radio button was clicked?
         switch (view.getId()) {
@@ -204,36 +212,52 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //    After pressing Grade Quiz button, this method calls createGradeSummary method to get string;
-//    then calls displayMessage to display string.
+    //    then calls displayMessage to display string.
     public void gradeQuiz(View view) {
-        EditText nameField = (EditText) findViewById(R.id.name_field);
+        EditText nameField = findViewById(R.id.name_field);
         String nameInput = nameField.getText().toString();
-        totalGrade = calculateGrade(counterQ1, counterQ2, counterQ3, counterQ4, counterQ5);
-        String yourGradeMessage = createGradeSummary(nameInput, totalGrade, counterQ1, counterQ2, counterQ3, counterQ4, counterQ5);
+        EditText kiteFlyer = findViewById(R.id.flown_kite);
+        String kFlyerInput = kiteFlyer.getText().toString().toLowerCase();
+
+        //re: Question 2
+
+        if (gotItRight < 4) {
+            counterQ2 = 0;
+        }
+
+//      Question 6
+
+        if (kFlyerInput.compareTo(kiteFlyerAnswer) == 0) counterQ6 = 1;
+        if (kFlyerInput.compareTo(kiteFlyerAnswerNo) == 0) counterQ6 = 1;
+
+        totalGrade = calculateGrade(counterQ1, counterQ2, counterQ3, counterQ4, counterQ5, counterQ6);
+        String yourGradeMessage = createGradeSummary(nameInput, totalGrade, counterQ1, counterQ2, counterQ3, counterQ4, counterQ5, counterQ6);
         displayMessage(yourGradeMessage);
     }
 
-    private int calculateGrade(int counterQ1, int counterQ2, int counterQ3, int counterQ4, int counterQ5) {
-        int calcGrade = counterQ1 + counterQ2 + counterQ3 + counterQ4 + counterQ5;
+    private int calculateGrade(int counterQ1, int counterQ2, int counterQ3, int counterQ4, int counterQ5, int counterQ6) {
+        int calcGrade = counterQ1 + counterQ2 + counterQ3 + counterQ4 + counterQ5 + counterQ6;
         return calcGrade;
     }
 
     //    Returns score total and breakdown in a string.
-    private String createGradeSummary(String nameField, int totalGrade, int counterQ1, int counterQ2, int counterQ3, int counterQ4, int counterQ5) {
+    private String createGradeSummary(String nameField, int totalGrade, int counterQ1, int counterQ2, int counterQ3, int counterQ4, int counterQ5, int counterQ6) {
         return nameField + ", this is your total score: " + totalGrade + "\nTotal score breakdown:" + "\nQuestion 1: " + counterQ1 +
-                "\nQuestion 2: " + counterQ2 + "\nQuestion 3: " + counterQ3 + "\nQuestion 4: " + counterQ4 + "\nQuestion 5: " + counterQ5;
+                "\nQuestion 2: " + counterQ2 + "\nQuestion 3: " + counterQ3 + "\nQuestion 4: " + counterQ4 + "\nQuestion 5: " + counterQ5 + "\nQuestion 6: " + counterQ6;
     }
 
     private void displayMessage(String message) {
-        TextView yourGradeTextView = (TextView) findViewById(R.id.yourGrade);
+        TextView yourGradeTextView = findViewById(R.id.yourGrade);
         yourGradeTextView.setText(message);
     }
 
     public void submitGrade(View view) {
-        EditText nameField = (EditText) findViewById(R.id.name_field);
+        EditText nameField = findViewById(R.id.name_field);
         String nameInput = nameField.getText().toString();
-        totalGrade = calculateGrade(counterQ1, counterQ2, counterQ3, counterQ4, counterQ5);
-        String yourGradeMessage = createGradeSummary(nameInput, totalGrade, counterQ1, counterQ2, counterQ3, counterQ4, counterQ5);
+        /*EditText kiteFlyer = findViewById(R.id.flown_kite);
+        String kFlyerInput = kiteFlyer.getText().toString();*/
+        totalGrade = calculateGrade(counterQ1, counterQ2, counterQ3, counterQ4, counterQ5, counterQ6);
+        String yourGradeMessage = createGradeSummary(nameInput, totalGrade, counterQ1, counterQ2, counterQ3, counterQ4, counterQ5, counterQ6);
 
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto: "));

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Kite Quiz App</string>
 
-    <string name="question_One">\n1. Kites were invented in </string>
+    <string name="question_One">1. Kites were invented in </string>
     <string name="qOne1">England</string>
     <string name="qOne2">China</string>
     <string name="qOne3">Brazil</string>
@@ -22,6 +22,8 @@
     <string name="question_Four">4. Never fly a kite during a thunderstorm.</string>
 
     <string name="question_Five">5. April is National Kite Month</string>
+
+    <string name="question_Six">6. Have you flown a kite before? [Yes/No]</string>
 
     <string name="Si">True</string>
     <string name="No">False</string>

@@ -1,297 +1,315 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:fillViewport="true"
-tools:context="com.example.android.quizapp.MainActivity">
-
-<android.support.constraint.ConstraintLayout
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:fillViewport="true"
+    tools:context="com.example.android.quizapp.MainActivity">
 
-    <!--Question 1. Radio button selection.-->
-
-    <TextView
-        android:id="@+id/questionOne"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="@string/question_One"
-        android:textSize="16sp"
-        app:layout_constraintLeft_toLeftOf="parent" />
-
-    <RadioGroup
-        android:id="@+id/radioQuestionOne"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/questionOne">
-
-        <RadioButton
-            android:id="@+id/radio_button_a"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/qOne1"
-            android:textSize="14sp"
-            android:onClick="onRadioButtonClicked"/>
-        <RadioButton
-            android:id="@+id/correct_radio_button_b"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/qOne2"
-            android:textSize="14sp"
-            android:onClick="onRadioButtonClicked" />
-        <RadioButton
-            android:id="@+id/radio_button_c"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/qOne3"
-            android:textSize="14sp"
-            android:onClick="onRadioButtonClicked" />
-
-    </RadioGroup>
-
-    <!--Question 2. Checkbox selection.-->
-
-    <TextView
-        android:id="@+id/questionTwo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/question_Two"
-        android:textSize="16sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioQuestionOne" />
-
-    <CheckBox
-        android:id="@+id/correct_qTwoA"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="8dp"
-        android:text="@string/qT1"
-        android:textSize="14sp"
-        android:onClick="onCheckBoxClicked"
-        app:layout_constraintTop_toBottomOf="@+id/questionTwo"/>
-
-    <CheckBox
-        android:id="@+id/correct_qTwoB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="8dp"
-        android:text="@string/qT2"
-        android:textSize="14sp"
-        android:onClick="onCheckBoxClicked"
-        app:layout_constraintTop_toBottomOf="@+id/correct_qTwoA"/>
-
-    <CheckBox
-        android:id="@+id/correct_qTwoC"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="8dp"
-        android:text="@string/qT3"
-        android:textSize="14sp"
-        android:onClick="onCheckBoxClicked"
-        app:layout_constraintTop_toBottomOf="@+id/correct_qTwoB"/>
-
-    <CheckBox
-        android:id="@+id/qTwoD"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="8dp"
-        android:text="@string/qT4"
-        android:textSize="14sp"
-        android:onClick="onCheckBoxClicked"
-        app:layout_constraintTop_toBottomOf="@+id/correct_qTwoC"/>
-
-    <CheckBox
-        android:id="@+id/qTwoE"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="8dp"
-        android:text="@string/qT5"
-        android:textSize="14sp"
-        android:onClick="onCheckBoxClicked"
-        app:layout_constraintTop_toBottomOf="@+id/qTwoD"/>
-
-    <!--Question 3. Radio button selection. updated-->
-
-    <TextView
-        android:id="@+id/questionThree"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/question_Three"
-        android:textSize="16sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/qTwoE" />
-
-    <RadioGroup
-        android:id="@+id/radioQuestionThreeN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/questionThree">
-
-        <RadioButton
-            android:id="@+id/correct_qThrA"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/qThree1"
-            android:textSize="14sp"
-            android:onClick="onRadioButtonClicked" />
-
-        <RadioButton
-            android:id="@+id/correct_qThrB"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/qThree2"
-            android:textSize="14sp"
-            android:onClick="onRadioButtonClicked" />
-
-        <RadioButton
-            android:id="@+id/correct_qThrC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/qThree3"
-            android:textSize="14sp"
-            android:onClick="onRadioButtonClicked" />
-
-    </RadioGroup>
-
-    <!--Question 4. Radio button selection.-->
-
-    <TextView
-        android:id="@+id/questionFour"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="@string/question_Four"
-        android:textSize="16sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioQuestionThreeN" />
-
-    <RadioGroup
-        android:id="@+id/radioQuestionFour"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/questionFour">
-
-        <RadioButton
-            android:id="@+id/correct_yes_radio_button4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Si"
-            android:textSize="14sp"
-            android:onClick="onRadioButtonClicked" />
-        <RadioButton
-            android:id="@+id/no_radio_button4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/No"
-            android:textSize="14sp"
-            android:onClick="onRadioButtonClicked" />
-
-    </RadioGroup>
-
-    <!--Question 5. Radio button selection.-->
-
-    <TextView
-        android:id="@+id/questionFive"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="@string/question_Five"
-        android:textSize="16sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioQuestionFour" />
-
-    <RadioGroup
-        android:id="@+id/radioQuestionFive"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/questionFive">
-
-        <RadioButton
-            android:id="@+id/yes_radio_button5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Si"
-            android:textSize="14sp"
-            android:onClick="onRadioButtonClicked" />
-        <RadioButton
-            android:id="@+id/no_radio_button5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/No"
-            android:textSize="14sp"
-            android:onClick="onRadioButtonClicked" />
-
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/yourGrade"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Please enter your name below. Get your score now or emailed to you.  Thank you for taking this quiz!"
-        android:textSize="16sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioQuestionFive" />
-
-    <LinearLayout
-        android:id="@+id/nameTextInput"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/yourGrade">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--Enter user's name. Text input.-->
 
         <EditText
             android:id="@+id/name_field"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Your Name Here"
-            android:inputType="textCapWords" />
+            android:hint="What is your name?"
+            android:inputType="textCapWords"
+            android:padding="8dp" />
 
-    </LinearLayout>
+        <!--Question 1. Radio button selection.-->
 
-    <LinearLayout
-        android:id="@+id/linearLayoutButtons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameTextInput">
-
-        <Button
-            android:id="@+id/gradeQuiz"
+        <TextView
+            android:id="@+id/questionOne"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:text="Get Score"
-            android:onClick="gradeQuiz"/>
+            android:text="@string/question_One"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name_field" />
 
-        <Button
-            android:id="@+id/btnPlus"
+        <RadioGroup
+            android:id="@+id/radioQuestionOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/questionOne">
+
+            <RadioButton
+                android:id="@+id/radio_button_a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/qOne1"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/correct_radio_button_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/qOne2"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/radio_button_c"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/qOne3"
+                android:textSize="14sp" />
+
+        </RadioGroup>
+
+        <!--Question 2. Checkbox selection.-->
+
+        <TextView
+            android:id="@+id/questionTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            android:text="@string/question_Two"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioQuestionOne" />
+
+        <CheckBox
+            android:id="@+id/correct_qTwoA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onCheckBoxClicked"
+            android:paddingLeft="8dp"
+            android:text="@string/qT1"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@+id/questionTwo" />
+
+        <CheckBox
+            android:id="@+id/correct_qTwoB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onCheckBoxClicked"
+            android:paddingLeft="8dp"
+            android:text="@string/qT2"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@+id/correct_qTwoA" />
+
+        <CheckBox
+            android:id="@+id/correct_qTwoC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onCheckBoxClicked"
+            android:paddingLeft="8dp"
+            android:text="@string/qT3"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@+id/correct_qTwoB" />
+
+        <CheckBox
+            android:id="@+id/qTwoD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onCheckBoxClicked"
+            android:paddingLeft="8dp"
+            android:text="@string/qT4"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@+id/correct_qTwoC" />
+
+        <CheckBox
+            android:id="@+id/qTwoE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onCheckBoxClicked"
+            android:paddingLeft="8dp"
+            android:text="@string/qT5"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@+id/qTwoD" />
+
+        <!--Question 3. Radio button selection.-->
+
+        <TextView
+            android:id="@+id/questionThree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            android:text="@string/question_Three"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/qTwoE" />
+
+        <RadioGroup
+            android:id="@+id/radioQuestionThreeN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/questionThree">
+
+            <RadioButton
+                android:id="@+id/correct_qThrA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/qThree1"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/correct_qThrB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/qThree2"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/correct_qThrC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/qThree3"
+                android:textSize="14sp" />
+
+        </RadioGroup>
+
+        <!--Question 4. Radio button selection.-->
+
+        <TextView
+            android:id="@+id/questionFour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:text="Email Score"
-            android:onClick="submitGrade"
-            app:layout_constraintLeft_toLeftOf="parent" />
+            android:text="@string/question_Four"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioQuestionThreeN" />
 
-    </LinearLayout>
+        <RadioGroup
+            android:id="@+id/radioQuestionFour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/questionFour">
 
-</android.support.constraint.ConstraintLayout>
+            <RadioButton
+                android:id="@+id/correct_yes_radio_button4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/Si"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/no_radio_button4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/No"
+                android:textSize="14sp" />
+
+        </RadioGroup>
+
+        <!--Question 5. Radio button selection.-->
+
+        <TextView
+            android:id="@+id/questionFive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/question_Five"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioQuestionFour" />
+
+        <RadioGroup
+            android:id="@+id/radioQuestionFive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/questionFive">
+
+            <RadioButton
+                android:id="@+id/yes_radio_button5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/Si"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/no_radio_button5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/No"
+                android:textSize="14sp" />
+
+        </RadioGroup>
+
+        <!--Question 6. Text input.-->
+
+        <TextView
+            android:id="@+id/questionSix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            android:text="@string/question_Six"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioQuestionFive" />
+
+        <EditText
+            android:id="@+id/flown_kite"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:padding="8dp"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/questionSix" />
+
+        <TextView
+            android:id="@+id/yourGrade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            android:text="Get your score now or have them emailed to you.\n\nThank you for taking this quiz!"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/flown_kite" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/yourGrade">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="gradeQuiz"
+                android:padding="8dp"
+                android:text="Get Score" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="submitGrade"
+                android:padding="8dp"
+                android:text="Email Score"
+                app:layout_constraintLeft_toLeftOf="parent" />
+
+        </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.v4.widget.NestedScrollView>
