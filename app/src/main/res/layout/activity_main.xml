@@ -267,9 +267,9 @@
             android:id="@+id/flown_kite"
             android:layout_width="48dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
             android:inputType="text"
             android:padding="8dp"
-            android:layout_marginLeft="8dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/questionSix" />
 
@@ -279,7 +279,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:padding="8dp"
-            android:text="Get your score now or have them emailed to you.\n\nThank you for taking this quiz!"
+            android:text="Get your score now or have them emailed to you."
             android:textSize="16sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/flown_kite" />

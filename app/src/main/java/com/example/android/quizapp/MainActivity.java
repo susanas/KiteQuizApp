@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -232,7 +231,7 @@ public class MainActivity extends AppCompatActivity {
 
         totalGrade = calculateGrade(counterQ1, counterQ2, counterQ3, counterQ4, counterQ5, counterQ6);
         String yourGradeMessage = createGradeSummary(nameInput, totalGrade, counterQ1, counterQ2, counterQ3, counterQ4, counterQ5, counterQ6);
-        displayMessage(yourGradeMessage);
+        Toast.makeText(this, yourGradeMessage, Toast.LENGTH_LONG).show();
     }
 
     private int calculateGrade(int counterQ1, int counterQ2, int counterQ3, int counterQ4, int counterQ5, int counterQ6) {
@@ -242,13 +241,8 @@ public class MainActivity extends AppCompatActivity {
 
     //    Returns score total and breakdown in a string.
     private String createGradeSummary(String nameField, int totalGrade, int counterQ1, int counterQ2, int counterQ3, int counterQ4, int counterQ5, int counterQ6) {
-        return nameField + ", this is your total score: " + totalGrade + "\nTotal score breakdown:" + "\nQuestion 1: " + counterQ1 +
-                "\nQuestion 2: " + counterQ2 + "\nQuestion 3: " + counterQ3 + "\nQuestion 4: " + counterQ4 + "\nQuestion 5: " + counterQ5 + "\nQuestion 6: " + counterQ6;
-    }
-
-    private void displayMessage(String message) {
-        TextView yourGradeTextView = findViewById(R.id.yourGrade);
-        yourGradeTextView.setText(message);
+        return "Hi " + nameField + "\nYour score: " + totalGrade + "\nScore breakdown:" + "\nQuestion 1: " + counterQ1 +
+                "\nQuestion 2: " + counterQ2 + "\nQuestion 3: " + counterQ3 + "\nQuestion 4: " + counterQ4 + "\nQuestion 5: " + counterQ5 + "\nQuestion 6: " + counterQ6 + "\n\nThank you for taking this quiz!";
     }
 
     public void submitGrade(View view) {
