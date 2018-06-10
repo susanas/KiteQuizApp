@@ -14,7 +14,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     int counterQ1 = 0;
-    int counterQ2 = 1;
+    int counterQ2 = 0;
     int counterQ3 = 0;
     int counterQ4 = 0;
     int counterQ5 = 0;
@@ -44,12 +44,9 @@ public class MainActivity extends AppCompatActivity {
         // Are all the correct check boxes checked?
         if (CheckboxQtrA.isChecked() && CheckboxQtrB.isChecked() && CheckboxQtrC.isChecked() && CheckboxQtrE.isChecked() && !CheckboxQtwD.isChecked()) {
             gotItRight++;
-        } else {
-            gotItRight = 0;
-        }
-
+        } else gotItRight = 0;
         if (gotItRight < 4) {
-            counterQ2 = 0;
+            counterQ2 = gotItRight;
         }
 
     }
