@@ -30,68 +30,31 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    //      Question 2
     public void onCheckBoxClicked(View view) {
-        // Is the check box now checked?
-        boolean checked = ((CheckBox) view).isChecked();
-        // Add 1 point for each correct answer selected.
-        CheckBox correctAnswerTwoA = findViewById(R.id.correct_qTwoA);
-        CheckBox correctAnswerTwoB = findViewById(R.id.correct_qTwoB);
-        CheckBox correctAnswerTwoC = findViewById(R.id.correct_qTwoC);
-        CheckBox correctAnswerTwoE = findViewById(R.id.qTwoE);
+
+        CheckBox CheckboxQtrA = findViewById(R.id.correct_qTwoA);
+        CheckBox CheckboxQtrB = findViewById(R.id.correct_qTwoB);
+        CheckBox CheckboxQtrC = findViewById(R.id.correct_qTwoC);
+        CheckBox CheckboxQtrE = findViewById(R.id.correct_qTwoE);
+        CheckBox CheckboxQtwD = findViewById(R.id.wrong_qTwoD);
 
         // Which check box was checked?
-        switch (view.getId()) {
-//      Question 2: A, B, C, F are correct answers, add 1 point to total grade.
-
-            case R.id.correct_qTwoA:
-                if (checked) {
-                    correctAnswerTwoA.setChecked(true);
-                    Toast.makeText(this, "You got it!", Toast.LENGTH_LONG).show();
-                    gotItRight = gotItRight + 1;
-                } else {
-                    gotItRight = gotItRight - 1;
-                }
-                break;
-
-            case R.id.correct_qTwoB:
-                if (checked) {
-                    correctAnswerTwoB.setChecked(true);
-                    Toast.makeText(this, "You got it!", Toast.LENGTH_LONG).show();
-                    gotItRight = gotItRight + 1;
-                } else {
-                    gotItRight = gotItRight - 1;
-                }
-                break;
-
-            case R.id.correct_qTwoC:
-                if (checked) {
-                    correctAnswerTwoC.setChecked(true);
-                    Toast.makeText(this, "You got it!", Toast.LENGTH_LONG).show();
-                    gotItRight = gotItRight + 1;
-                } else {
-                    gotItRight = gotItRight - 1;
-                }
-                break;
-
-            case R.id.qTwoE:
-                if (checked) {
-                    correctAnswerTwoE.setChecked(true);
-                    Toast.makeText(this, "You got it!", Toast.LENGTH_LONG).show();
-                    gotItRight = gotItRight + 1;
-                } else {
-                    gotItRight = gotItRight - 1;
-                }
-                break;
-
-            case R.id.qTwoD:
-                if (checked) {
-                    ((CheckBox) view).setChecked(true);
-                    Toast.makeText(this, "Try again!", Toast.LENGTH_SHORT).show();
-                    gotItRight = gotItRight - 1;
-                }
-                break;
+        // Question 2: If A, B, C, E are all selected, add 1 point to total grade.  Else set point = 0.
+        // Are all the correct check boxes checked?
+        if (CheckboxQtrA.isChecked() && CheckboxQtrB.isChecked() && CheckboxQtrC.isChecked() && CheckboxQtrE.isChecked() && !CheckboxQtwD.isChecked()) {
+            gotItRight++;
+        } else {
+            gotItRight = 0;
         }
+
+        if (gotItRight < 4) {
+            counterQ2 = 0;
+        }
+
     }
+
+//      Question 1
 
     public void onRadioButtonClicked(View view) {
         // Is the button selected?
@@ -104,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Which radio button was clicked?
         switch (view.getId()) {
-//      Question 1
             case R.id.radio_button_a:
                 if (checked) {
                     ((RadioButton) view).setChecked(true);
@@ -210,19 +172,13 @@ public class MainActivity extends AppCompatActivity {
         Log.v("MainActivity", "Radio button points so far: " + counterQ1 + counterQ2 + counterQ3 + counterQ4 + counterQ5);
     }
 
-    //    After pressing Grade Quiz button, this method calls createGradeSummary method to get string;
-    //    then calls displayMessage to display string.
+    //    After pressing Grade Quiz button, this method calls createGradeSummary method to display toast message;
     public void gradeQuiz(View view) {
         EditText nameField = findViewById(R.id.name_field);
         String nameInput = nameField.getText().toString();
         EditText kiteFlyer = findViewById(R.id.flown_kite);
         String kFlyerInput = kiteFlyer.getText().toString().toLowerCase();
 
-        //re: Question 2
-
-        if (gotItRight < 4) {
-            counterQ2 = 0;
-        }
 
 //      Question 6
 

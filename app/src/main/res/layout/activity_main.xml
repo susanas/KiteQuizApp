@@ -111,7 +111,7 @@
             app:layout_constraintTop_toBottomOf="@+id/correct_qTwoB" />
 
         <CheckBox
-            android:id="@+id/qTwoD"
+            android:id="@+id/wrong_qTwoD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onCheckBoxClicked"
@@ -121,14 +121,14 @@
             app:layout_constraintTop_toBottomOf="@+id/correct_qTwoC" />
 
         <CheckBox
-            android:id="@+id/qTwoE"
+            android:id="@+id/correct_qTwoE"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onCheckBoxClicked"
             android:paddingLeft="8dp"
             android:text="@string/qT5"
             android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@+id/qTwoD" />
+            app:layout_constraintTop_toBottomOf="@+id/wrong_qTwoD" />
 
         <!--Question 3. Radio button selection.-->
 
@@ -141,7 +141,7 @@
             android:text="@string/question_Three"
             android:textSize="16sp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/qTwoE" />
+            app:layout_constraintTop_toBottomOf="@+id/correct_qTwoE" />
 
         <RadioGroup
             android:id="@+id/radioQuestionThreeN"
